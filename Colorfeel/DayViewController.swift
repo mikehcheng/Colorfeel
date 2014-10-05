@@ -36,6 +36,7 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
         let width: CGFloat = 200;
         let height: CGFloat = 200;
         
@@ -51,13 +52,26 @@ class DayViewController: UIViewController {
         view.addSubview(imageView);
         
         changeBackgroundColor(self.makePrettyColors(self.moodColors));
+        
+        var date = UILabel(frame: CGRectMake(0, 0, 400, 21))
+        date.center = CGPointMake(188, 200)
+        date.textAlignment = NSTextAlignment.Center
+        date.textColor = colorize(0x727373, alpha: 1.0);
+        date.text = ""
+        self.view.addSubview(date)
+        
+        var label = UILabel(frame: CGRectMake(0, 0, 400, 21))
+        label.center = CGPointMake(188, 394)
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = colorize(0x727373, alpha: 1.0);
+        label.text = "_______________________________"
+        self.view.addSubview(label)
     }
     
     //Changes the background colors
     //@list: The list of colors to go through
     func changeBackgroundColor(list:[UIColor]){
         self.toNextColor(list, intIndex: 0);
-        
     }
     
     //Changes to the next color
@@ -70,7 +84,6 @@ class DayViewController: UIViewController {
                 //println(intIndex);
             },
             completion: {finished in self.toNextColor(list,intIndex:(intIndex+1)%list.count)})
-        
     }
     
     //Takes an array and makes the transitions pretty
@@ -82,7 +95,6 @@ class DayViewController: UIViewController {
             prettyColorList = prettyColorList + changePrettyColors(list[index],
                               addColor: list[index+1])
         }
-        
         return prettyColorList;
     }
     
@@ -112,7 +124,6 @@ class DayViewController: UIViewController {
         returnList.append(addColor);
         
         return returnList;
-        
     }
     
     override func didReceiveMemoryWarning() {
