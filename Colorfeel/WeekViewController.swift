@@ -59,8 +59,6 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         layout.itemSize = CGSize(width: ITEM_SIZE, height: ITEM_SIZE)
         layout.minimumLineSpacing = 30
         
-        
-        
         collectionView = UICollectionView(frame: self.view.frame,
             collectionViewLayout : layout)
         collectionView!.dataSource = self

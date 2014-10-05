@@ -12,7 +12,7 @@ import UIKit
 class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     let SIDE_PADDING    : CGFloat = 43;
-    let TOP_PADDING     : CGFloat = 85;
+    let TOP_PADDING     : CGFloat = 75;
     
     let NILTIME         : NSDate = NSDate(timeIntervalSince1970: 0)
     
@@ -48,17 +48,18 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var date = UILabel(frame: CGRectMake(0, 0, 400, 21))
-        date.center = CGPointMake(188, 125)
+        var date = UILabel(frame: CGRectMake(0, 0, 400, 30))
+        date.center = CGPointMake(188, 95)
         date.textAlignment = NSTextAlignment.Center
         date.textColor = colorize(0x727373, alpha: 1.0);
+        date.font = UIFont(name: "HelveticaNeue", size: CGFloat(27))
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
         date.text = dateFormatter.stringFromDate(inputDate)
         self.view.addSubview(date)
         
         var label = UILabel(frame: CGRectMake(0, 0, 400, 21))
-        label.center = CGPointMake(188, 394)
+        label.center = CGPointMake(188, 374)
         label.textAlignment = NSTextAlignment.Center
         label.textColor = colorize(0x727373, alpha: 1.0);
         label.text = "_______________________________"
