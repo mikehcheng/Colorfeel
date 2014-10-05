@@ -50,6 +50,7 @@ class DatabaseController {
     }
     
     func createEntry(color: UIColor, note: String? = nil) {
+        print("Creating entry: \(color), \(note)")
         var sqlinsert = "INSERT INTO ENTRIES (RED, GREEN, BLUE, ALPHA, TIME) VALUES (?, ?, ?, ?, ?)"
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         color.getRed(&r, green: &g, blue: &b, alpha: &a)

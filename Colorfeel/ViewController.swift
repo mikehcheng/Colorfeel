@@ -100,6 +100,8 @@ UICollectionViewDataSource {
         if segue.identifier == "color_select" {
             var svc: DayViewController = segue.destinationViewController as DayViewController
             svc.inputColor = sender! as UIColor
+            svc.inputDate = NSDate()
+            svc.editingNote = true
         }
     }
 }
