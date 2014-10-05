@@ -68,7 +68,19 @@
                     <view key="view" contentMode="scaleToFill" id="8hq-Jp-oBQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G23-K5-KAc">
+                                <rect key="frame" x="284" y="45" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G23-K5-KAc" firstAttribute="top" secondItem="3D6-uz-Zoa" secondAttribute="bottom" constant="60" id="CgS-TS-jfB"/>
+                            <constraint firstAttribute="centerX" secondItem="G23-K5-KAc" secondAttribute="centerX" id="epK-PS-0WG"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="pC1-5f-kre" kind="custom" identifier="back_day_view" customClass="TranslateRightSegue" customModule="Colorfeel" customModuleProvider="target" id="9ej-iw-5io"/>

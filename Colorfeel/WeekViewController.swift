@@ -37,14 +37,6 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         super.viewDidLoad()
         
-        var date = UILabel(frame: CGRectMake(0, 0, 400, 21))
-        date.center = CGPointMake(188, 200)
-        date.textAlignment = NSTextAlignment.Center
-        date.textColor = colorize(0x727373, alpha: 1.0);
-        date.text = ""
-        //  NSString *displayString = [NSDate stringForDisplayFromDate:date];
-        self.view.addSubview(date)
-        
         //Set up the swipe handler.
         var swipeRight = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureRight:")
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
@@ -67,6 +59,23 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             forCellWithReuseIdentifier: "Cell")
         collectionView!.backgroundColor = BG_COLOR
         self.view.addSubview(collectionView!)
+        
+        
+        var date = UILabel(frame: CGRectMake(0, 0, 400, 30))
+        //var date = UILabel(frame: CGRectMake(0, 0, view.frame.width, view.frame.height - TOP_PADDING - BOTTOM_PADDING))
+        date.center = CGPointMake(188, 95)
+        date.textAlignment = NSTextAlignment.Center
+        date.textColor = colorize(0x727373, alpha: 1.0);
+        date.font = UIFont(name: "HelveticaNeue", size: CGFloat(26))
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        var oldseconds = NSDate().timeIntervalSince1970 - Double(6 * 86400)
+        var oldDate = NSDate(timeIntervalSince1970: oldseconds)
+        var dateDisplay = dateFormatter.stringFromDate(oldDate) + " - " +
+            dateFormatter.stringFromDate(NSDate.date())
+        println(dateDisplay)
+        date.text = dateDisplay
+        self.view.addSubview(date)
     }
     
     override func didReceiveMemoryWarning() {
