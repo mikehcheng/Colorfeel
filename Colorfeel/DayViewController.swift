@@ -51,15 +51,32 @@ class DayViewController: UIViewController, UITextViewDelegate {
         
         self.view.backgroundColor = BG_COLOR
         
+        //Color Square
         imageView = UIImageView(frame: view.frame)
         imageView.backgroundColor = inputColor
         view.addSubview(imageView);
     }
     
+    func textViewDidBeginEditing(textView: UITextView) {
+        println("Began!")
+        UIView.animateWithDuration(0.33, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+            animations: { () -> Void in
+                self.view.transform = CGAffineTransformMakeTranslation(0, -216)
+            },
+            completion: nil
+        )
+    }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
+            UIView.animateWithDuration(0.33, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+                animations: { () -> Void in
+                    self.view.transform = CGAffineTransformMakeTranslation(0, 0)
+                },
+                completion: nil
+            )
+
         }
         return true
     }
