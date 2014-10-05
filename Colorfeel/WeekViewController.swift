@@ -99,8 +99,7 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             var cellcolor = cell?.backgroundColor
             collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
             
-            // if clicked, send color value over to edit view
-//            performSegueWithIdentifier("color_select", sender: cellcolor)
+            performSegueWithIdentifier("back_day_view", sender: indexPath.row)
     }
     
     override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
@@ -108,7 +107,19 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func handleSwipeGestureRight(gesture : UIGestureRecognizer) {
-        performSegueWithIdentifier("back_day_view", sender: gesture.view)
+        performSegueWithIdentifier("back_day_view", sender: gesture)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var svc: DayViewController = segue.destinationViewController as DayViewController
+        if sender is UISwipeGestureRecognizer && (sender as UISwipeGestureRecognizer).direction == .Right {
+            //use current date for swipe back
+            svc.inputDate = NSDate()
+        } else if sender is Int {
+            var oldseconds = NSDate().timeIntervalSince1970 - Double((6 - (sender as Int)) * 86400)
+            var oldDate = NSDate(timeIntervalSince1970: oldseconds)
+            svc.inputDate = oldDate
+        }
     }
     
 }
