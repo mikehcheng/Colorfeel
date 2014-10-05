@@ -14,10 +14,30 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     let TOP_PADDING : CGFloat = 150;
     let BOTTOM_PADDING : CGFloat = 80;
-    let SIDE_PADDING : CGFloat = 60;
+    let SIDE_PADDING : CGFloat = 64;
     let ITEM_SIZE : CGFloat = 45;
+    
+    let hexCodes : [Int] = [0xFF9999, 0xCC6666, 0x993333, 0x660000,  // red
+        0xFDCC9A, 0xF79868, 0xCC6633, 0x993300,  // orange
+        0xFFE5B6, 0xFFCC66, 0xCC9933, 0x996600,  // yellow
+        0xCFE295, 0x99CC66, 0x669940, 0x356732,  // green
+        0xC8E8E8, 0x99CCCC, 0x669999, 0x336667,  // teal
+        0xD3E3F1, 0x9FC9EB, 0x6699CC, 0x33669A,  // blue
+        0xEBCEE3, 0xCB9AC6, 0x996699, 0x663366,  // purple
+        0xFBDEEB, 0xF499C1, 0xCC6699, 0x9A3466]  // pink
 
+    
+    func colorize (hex: Int, alpha: Double) -> UIColor {
+        let red = Double((hex & 0xFF0000) >> 16) / 255.0
+        let green = Double((hex & 0xFF00) >> 8) / 255.0
+        let blue = Double((hex & 0xFF)) / 255.0
+        var color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+        return color
+    }
+    
     override func viewDidLoad() {
+        let BG_COLOR : UIColor = colorize(0xEFEFEF, alpha: 1.0)
+        
         super.viewDidLoad()
         
         //Additional stuff.
@@ -32,10 +52,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         collectionView!.dataSource = self
         collectionView!.delegate = self
         collectionView!.registerClass(CFCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView!.backgroundColor = UIColor.whiteColor()
+        collectionView!.backgroundColor = BG_COLOR
         self.view.addSubview(collectionView!)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,13 +67,17 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
-        cell.imageView.image = UIImage(named: "star")
+        
+        cell.backgroundColor = colorize(hexCodes[indexPath.row], alpha: 1.0);
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
+
         println(indexPath.row);
+        // if clicked, send color value over to edit view
     }
     
 }

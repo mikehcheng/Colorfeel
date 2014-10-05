@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Eta-5C-Jmc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Eta-5C-Jmc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Main-->
@@ -12,12 +12,13 @@
                         <viewControllerLayoutGuide type="top" id="41F-zV-58l"/>
                         <viewControllerLayoutGuide type="bottom" id="LEi-Jk-po0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="llY-L0-G7Q">
+                    <view key="view" contentMode="center" id="llY-L0-G7Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjB-1o-GjE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjB-1o-GjE">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" misplaced="YES">
@@ -25,9 +26,9 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.64253847649999996" green="1" blue="0.60050642170000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.96729584854014594" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gjB-1o-GjE" firstAttribute="top" secondItem="41F-zV-58l" secondAttribute="bottom" constant="30" id="8tU-kP-Ra8"/>
+                            <constraint firstItem="gjB-1o-GjE" firstAttribute="top" secondItem="41F-zV-58l" secondAttribute="bottom" constant="60" id="8tU-kP-Ra8"/>
                             <constraint firstAttribute="centerX" secondItem="gjB-1o-GjE" secondAttribute="centerX" id="xzz-5w-Qiv"/>
                         </constraints>
                         <variation key="default">
