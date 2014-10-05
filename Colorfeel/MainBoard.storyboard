@@ -52,17 +52,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="w4j-ou-XmA"/>
                     <connections>
-                        <segue destination="pC1-5f-kre" kind="show" identifier="color_select" id="t1e-MS-j2z"/>
+                        <segue destination="bAs-7p-cXn" kind="show" identifier="color_select" id="t1e-MS-j2z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V62-Fm-PN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1366" y="160"/>
         </scene>
-        <!--Day View Controller-->
+        <!--Day View-->
         <scene sceneID="Irk-2l-mNw">
             <objects>
-                <viewController id="pC1-5f-kre" customClass="DayViewController" customModule="Colorfeel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Day View" id="pC1-5f-kre" customClass="DayViewController" customModule="Colorfeel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Mk-GM-fhy"/>
                         <viewControllerLayoutGuide type="bottom" id="h7W-KP-PW7"/>
@@ -83,10 +83,16 @@
                             <constraint firstAttribute="centerX" secondItem="NL0-C1-Ptr" secondAttribute="centerX" id="Uhv-dJ-oWt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="lYN-N3-lcT">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="eOX-Kc-5jT"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="notes" destination="NL0-C1-Ptr" id="RZO-rY-DvZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMy-l7-BEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="160"/>
+            <point key="canvasLocation" x="2880" y="160"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jL9-Ku-50D">
@@ -105,6 +111,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhY-Mr-zC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="554" y="160"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8ea-e7-BJX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bAs-7p-cXn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QQU-qJ-HrQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Gzf-e6-gSt">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="pC1-5f-kre" kind="relationship" relationship="rootViewController" id="ADP-EA-Qh7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fko-W9-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="160"/>
         </scene>
     </scenes>
 </document>
