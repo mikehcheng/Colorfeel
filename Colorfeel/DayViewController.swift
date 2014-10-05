@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Lynda Tang. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -48,11 +49,12 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         // Do any additional setup after loading the view, typically from a nib.
         
         var date = UILabel(frame: CGRectMake(0, 0, 400, 21))
-        date.center = CGPointMake(188, 200)
+        date.center = CGPointMake(188, 125)
         date.textAlignment = NSTextAlignment.Center
         date.textColor = colorize(0x727373, alpha: 1.0);
-        date.text = ""
-        // NSString *displayString = [NSDate stringForDisplayFromDate:date];
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        date.text = dateFormatter.stringFromDate(inputDate)
         self.view.addSubview(date)
         
         var label = UILabel(frame: CGRectMake(0, 0, 400, 21))
