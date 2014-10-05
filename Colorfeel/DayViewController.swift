@@ -33,6 +33,10 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        var swipeRec = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
+        swipeRec.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRec)
+        
         let width: CGFloat = 200;
         let height: CGFloat = 200;
         
@@ -46,12 +50,20 @@ class DayViewController: UIViewController {
         imageView = UIImageView(frame: view.frame)
         imageView.backgroundColor = inputColor
         view.addSubview(imageView);
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
+        super.performSegueWithIdentifier(identifier!, sender:sender);
+    }
+    
+    func handleSwipeGesture(gesture : UIGestureRecognizer) {
+        //println("HI")
+        performSegueWithIdentifier("back_color_select", sender: gesture.view)
     }
 }
 
