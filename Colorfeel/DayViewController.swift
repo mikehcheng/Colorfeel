@@ -50,9 +50,13 @@ class DayViewController: UIViewController, UITextViewDelegate {
         self.view.addSubview(label)
         
         //Set up the swipe handler.
-        var swipeRec = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
-        swipeRec.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(swipeRec)
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureRight:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureLeft:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeft)
         
         notes.delegate = self
         notes.returnKeyType = UIReturnKeyType.Done
@@ -73,7 +77,7 @@ class DayViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        println("Began!")
+        textView.text = ""
         UIView.animateWithDuration(0.33, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
             animations: { () -> Void in
                 self.view.transform = CGAffineTransformMakeTranslation(0, -216)
@@ -105,8 +109,12 @@ class DayViewController: UIViewController, UITextViewDelegate {
         super.performSegueWithIdentifier(identifier!, sender:sender);
     }
     
-    func handleSwipeGesture(gesture : UIGestureRecognizer) {
+    func handleSwipeGestureRight(gesture : UIGestureRecognizer) {
         performSegueWithIdentifier("back_color_select", sender: gesture.view)
+    }
+    
+    func handleSwipeGestureLeft(gesture : UIGestureRecognizer) {
+        performSegueWithIdentifier("week_view", sender: gesture.view)
     }
 }
 

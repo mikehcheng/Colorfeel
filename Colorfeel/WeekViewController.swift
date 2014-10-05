@@ -45,7 +45,11 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         //  NSString *displayString = [NSDate stringForDisplayFromDate:date];
         self.view.addSubview(date)
         
-        //Additional stuff.
+        //Set up the swipe handler.
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureRight:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        
         //Create a new collection view flow layout.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         //Padding from the sides.
@@ -54,6 +58,9 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         //Item size for each cell.
         layout.itemSize = CGSize(width: ITEM_SIZE, height: ITEM_SIZE)
         layout.minimumLineSpacing = 30
+        
+        
+        
         collectionView = UICollectionView(frame: self.view.frame,
             collectionViewLayout : layout)
         collectionView!.dataSource = self
@@ -96,11 +103,12 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
 //            performSegueWithIdentifier("color_select", sender: cellcolor)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  //      print(sender)
-//        if segue.identifier == "color_select" {
-    //        var svc: DayViewController = segue.destinationViewController as DayViewController
-      //      svc.inputColor = sender! as UIColor
-        //}
+    override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
+        super.performSegueWithIdentifier(identifier!, sender:sender);
     }
+    
+    func handleSwipeGestureRight(gesture : UIGestureRecognizer) {
+        performSegueWithIdentifier("back_day_view", sender: gesture.view)
+    }
+    
 }
