@@ -119,6 +119,7 @@ class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var svc: DayViewController = segue.destinationViewController as DayViewController
+        svc.editingNote = false
         if sender is UISwipeGestureRecognizer && (sender as UISwipeGestureRecognizer).direction == .Right {
             //use current date for swipe back
             svc.inputDate = NSDate()
