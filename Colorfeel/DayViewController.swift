@@ -76,7 +76,7 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         
         notes.delegate = self
         notes.returnKeyType = UIReturnKeyType.Done
-        if(editingNote != false) {
+        if(editingNote == false) {
             notes.text = dayEntries.first!.note!
         }
         
@@ -141,33 +141,20 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         return true
     }
     
-    //Changes the background colors
-    //@list: The list of colors to go through
-    func changeBackgroundColor(list:[UIColor]){
-        self.toNextColor(list, intIndex: 0);
-    }
     //Changes to the next color
     //@list: The list of UIColors to parse through
     //@intIndex: The current int
-    func toNextColor(list:[UIColor], intIndex: Int){
-        UIView.animateWithDuration(3.0, delay: 0.2, options: nil, animations:
-            {
-                self.imageView.backgroundColor = list[intIndex];
-                //println(intIndex);
-            },
-            completion: {finished in self.toNextColor(list,intIndex:(intIndex+1)%list.count)})
-    }
-    //Takes an array and makes the transitions pretty
-    //Returns the kpsurgeried color array
-    func makePrettyColors(list:[UIColor]) ->Array<UIColor>{
-        //var index = 0;
-        var prettyColorList: Array<UIColor> = [];
-        for index in 0...(list.count-2) {
-            prettyColorList = prettyColorList + changePrettyColors(list[index],
-                addColor: list[index+1])
+    func toNextColor(list:[UIColor]){
+        for i in 0...(list.count - 1) {
+            UIView.animateWithDuration(1, delay: 0.2, options: nil, animations:
+                {
+                    self.imageView.backgroundColor = list[i];
+                },
+                completion: nil
+            )
         }
-        return prettyColorList;
     }
+    
     //Takes a two colors
     //Makes the add pretty
     //@currColor: Current Color
@@ -212,9 +199,11 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         didSelectItemAtIndexPath indexPath: NSIndexPath) {
             //last element is edited, only if editingNote
             let cell = collectionView.cellForItemAtIndexPath(indexPath)
+            
             imageView.backgroundColor = cell?.backgroundColor
-            notes.text = (dayEntries[indexPath.row].note? == nil ? "" : dayEntries[indexPath.row].note!)
-            if ((editingNote) != nil && editingNote!) {
+//            let newbgcolor = cell?.backgroundColor
+//            toNextColor(changePrettyColors(imageView.backgroundColor!, addColor: newbgcolor!))
+            if ((editingNote) != nil && editingNote! && indexPath.row == dayEntries.count - 1) {
                 notes.editable = true
             } else {
                 //was editing most recent
@@ -223,6 +212,7 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
                 }
                 notes.editable = false
             }
+            notes.text = (dayEntries[indexPath.row].note? == nil ? "" : dayEntries[indexPath.row].note!)
     }
     
     func collectionView(collectionView: UICollectionView,
