@@ -11,6 +11,7 @@
 		00880BB419E09DD0005ABB87 /* MainBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00880BB319E09DD0005ABB87 /* MainBoard.storyboard */; };
 		00880BB819E0AB31005ABB87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00880BB719E0AB31005ABB87 /* ViewController.swift */; };
 		00EEE07419E1195D00DF1EBF /* TranslateRightSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EEE07319E1195D00DF1EBF /* TranslateRightSegue.swift */; };
+		781C19D719E13B4800B338E5 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C19D619E13B4700B338E5 /* WeekViewController.swift */; };
 		78B560DA19E0D281007EAD0B /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B560D919E0D281007EAD0B /* DayViewController.swift */; };
 		8E14FF2719E0763700CDB19D /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14FF2619E0763700CDB19D /* DatabaseController.swift */; };
 		8E1C856A19E056870029C55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C856919E056870029C55A /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 		00EEE07319E1195D00DF1EBF /* TranslateRightSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateRightSegue.swift; sourceTree = "<group>"; };
 		2491BA6308FE51C5897B6E31 /* libPods-Colorfeel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Colorfeel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62FBDC0EC729187556338D0D /* Pods-Colorfeel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorfeel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Colorfeel/Pods-Colorfeel.release.xcconfig"; sourceTree = "<group>"; };
+		781C19D619E13B4700B338E5 /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		78AE12AC04E25464BDA30564 /* Pods-Colorfeel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorfeel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Colorfeel/Pods-Colorfeel.debug.xcconfig"; sourceTree = "<group>"; };
 		78B560D919E0D281007EAD0B /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		8E14FF2519E0746500CDB19D /* Colorfeel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Colorfeel-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				00880BB719E0AB31005ABB87 /* ViewController.swift */,
+				781C19D619E13B4700B338E5 /* WeekViewController.swift */,
 				78B560D919E0D281007EAD0B /* DayViewController.swift */,
 				8E8D316419E10DAF001667EF /* TranslateLeftSegue.swift */,
 				00EEE07319E1195D00DF1EBF /* TranslateRightSegue.swift */,
@@ -298,6 +301,7 @@
 				00EEE07419E1195D00DF1EBF /* TranslateRightSegue.swift in Sources */,
 				8E1C856A19E056870029C55A /* AppDelegate.swift in Sources */,
 				8E8D316519E10DAF001667EF /* TranslateLeftSegue.swift in Sources */,
+				781C19D719E13B4800B338E5 /* WeekViewController.swift in Sources */,
 				8E14FF2719E0763700CDB19D /* DatabaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,3 +1,4 @@
 */xcuserdata/
 */*/xcuserdata/
 *.sqlite
+.DS_Store

@@ -47,10 +47,29 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        var date = UILabel(frame: CGRectMake(0, 0, 400, 21))
+        date.center = CGPointMake(188, 200)
+        date.textAlignment = NSTextAlignment.Center
+        date.textColor = colorize(0x727373, alpha: 1.0);
+        date.text = ""
+        // NSString *displayString = [NSDate stringForDisplayFromDate:date];
+        self.view.addSubview(date)
+        
+        var label = UILabel(frame: CGRectMake(0, 0, 400, 21))
+        label.center = CGPointMake(188, 394)
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = colorize(0x727373, alpha: 1.0);
+        label.text = "_______________________________"
+        self.view.addSubview(label)
+        
         //Set up the swipe handler.
-        var swipeRec = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
-        swipeRec.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(swipeRec)
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureRight:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureLeft:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeft)
         
         notes.delegate = self
         notes.returnKeyType = UIReturnKeyType.Done
@@ -64,6 +83,7 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         
         self.view.backgroundColor = BG_COLOR
         
+        //Color Square
         imageView = UIImageView(frame: view.frame)
         imageView.backgroundColor = inputColor
         view.addSubview(imageView);
@@ -84,15 +104,33 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
         self.view.addSubview(collectionView)
     }
     
+    func textViewDidBeginEditing(textView: UITextView) {
+        textView.text = ""
+        UIView.animateWithDuration(0.33, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+            animations: { () -> Void in
+                self.view.transform = CGAffineTransformMakeTranslation(0, -216)
+            },
+            completion: nil
+        )
+    }
+    
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
+            //updates entry and saves
             dayEntries[dayEntries.count-1].time = NSDate()
             dayEntries[dayEntries.count-1].note = notes.text
             var dbc = DatabaseController()
             dbc.createEntry(dayEntries[dayEntries.count-1].color, note: dayEntries[dayEntries.count-1].note?)
             editingNote = false
             notes.editable = false
+            //animates response
+            UIView.animateWithDuration(0.33, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+                animations: { () -> Void in
+                    self.view.transform = CGAffineTransformMakeTranslation(0, 0)
+                },
+                completion: nil
+            )
         }
         return true
     }
@@ -135,6 +173,14 @@ class DayViewController: UIViewController, UITextViewDelegate, UICollectionViewD
                 forIndexPath: indexPath) as CFCell
             cell.backgroundColor = dayEntries[indexPath.row].color
             return cell
+    }
+    
+    func handleSwipeGestureRight(gesture : UIGestureRecognizer) {
+        performSegueWithIdentifier("back_color_select", sender: gesture.view)
+    }
+    
+    func handleSwipeGestureLeft(gesture : UIGestureRecognizer) {
+        performSegueWithIdentifier("week_view", sender: gesture.view)
     }
 }
 

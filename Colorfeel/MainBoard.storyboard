@@ -57,6 +57,27 @@
             </objects>
             <point key="canvasLocation" x="2061" y="154"/>
         </scene>
+        <!--Week View-->
+        <scene sceneID="sRO-vb-9IG">
+            <objects>
+                <viewController title="Week View" id="wWE-Z7-L1j" customClass="WeekViewController" customModule="Colorfeel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3D6-uz-Zoa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pfu-h6-hYo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8hq-Jp-oBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="pC1-5f-kre" kind="custom" identifier="back_day_view" customClass="TranslateRightSegue" customModule="Colorfeel" customModuleProvider="target" id="9ej-iw-5io"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMh-lm-8MP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3756" y="140"/>
+        </scene>
         <!--Day View-->
         <scene sceneID="Irk-2l-mNw">
             <objects>
@@ -88,20 +109,23 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="saA-TV-Cw0" secondAttribute="centerX" id="0mw-3y-Ige"/>
                             <constraint firstAttribute="centerX" secondItem="NL0-C1-Ptr" secondAttribute="centerX" id="Fjj-hB-ahz"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="notes" destination="NL0-C1-Ptr" id="RZO-rY-DvZ"/>
                         <segue destination="Eta-5C-Jmc" kind="custom" identifier="back_color_select" customClass="TranslateRightSegue" customModule="Colorfeel" customModuleProvider="target" id="S8s-Kc-BtM"/>
+                        <segue destination="wWE-Z7-L1j" kind="custom" identifier="week_view" customClass="TranslateLeftSegue" customModule="Colorfeel" customModuleProvider="target" id="5ge-Hj-cx0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMy-l7-BEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2880" y="160"/>
+            <point key="canvasLocation" x="2928" y="160"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9ej-iw-5io"/>
+    </inferredMetricsTieBreakers>
 </document>
