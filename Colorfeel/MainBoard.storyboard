@@ -21,12 +21,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="80" y="75" width="225" height="21"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.96729584854014594" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gjB-1o-GjE" firstAttribute="top" secondItem="41F-zV-58l" secondAttribute="bottom" constant="60" id="8tU-kP-Ra8"/>
                             <constraint firstAttribute="centerX" secondItem="gjB-1o-GjE" secondAttribute="centerX" id="xzz-5w-Qiv"/>
@@ -52,7 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="w4j-ou-XmA"/>
                     <connections>
-                        <segue destination="pC1-5f-kre" kind="show" identifier="color_select" id="t1e-MS-j2z"/>
+                        <segue destination="pC1-5f-kre" kind="custom" identifier="color_select" customClass="TranslateLeftSegue" customModule="Colorfeel" customModuleProvider="target" id="t1e-MS-j2z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V62-Fm-PN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,6 +81,9 @@
                             <constraint firstAttribute="centerX" secondItem="NL0-C1-Ptr" secondAttribute="centerX" id="Uhv-dJ-oWt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="c41-NG-5rO" kind="custom" customClass="TranslateRightSegue" customModule="Colorfeel" customModuleProvider="target" id="kPl-3U-AHW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMy-l7-BEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

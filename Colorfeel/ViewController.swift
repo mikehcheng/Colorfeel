@@ -13,6 +13,8 @@ UICollectionViewDataSource {
     
     var collectionView: UICollectionView?
     
+    let swipeRec = UISwipeGestureRecognizer()
+    
     let TOP_PADDING     : CGFloat = 150;
     let BOTTOM_PADDING  : CGFloat = 80;
     let SIDE_PADDING    : CGFloat = 64;
