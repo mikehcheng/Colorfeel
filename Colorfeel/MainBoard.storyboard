@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="1366" y="160"/>
         </scene>
-        <!--Day View Controller-->
+        <!--Day View-->
         <scene sceneID="Irk-2l-mNw">
             <objects>
-                <viewController id="pC1-5f-kre" customClass="DayViewController" customModule="Colorfeel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Day View" id="pC1-5f-kre" customClass="DayViewController" customModule="Colorfeel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Mk-GM-fhy"/>
                         <viewControllerLayoutGuide type="bottom" id="h7W-KP-PW7"/>
@@ -82,12 +82,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="notes" destination="NL0-C1-Ptr" id="RZO-rY-DvZ"/>
                         <segue destination="c41-NG-5rO" kind="custom" customClass="TranslateRightSegue" customModule="Colorfeel" customModuleProvider="target" id="kPl-3U-AHW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMy-l7-BEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="160"/>
+            <point key="canvasLocation" x="2880" y="160"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jL9-Ku-50D">
@@ -107,5 +108,29 @@
             </objects>
             <point key="canvasLocation" x="554" y="160"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8ea-e7-BJX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bAs-7p-cXn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QQU-qJ-HrQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Gzf-e6-gSt">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="pC1-5f-kre" kind="relationship" relationship="rootViewController" id="ADP-EA-Qh7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fko-W9-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="160"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ADP-EA-Qh7"/>
+    </inferredMetricsTieBreakers>
 </document>

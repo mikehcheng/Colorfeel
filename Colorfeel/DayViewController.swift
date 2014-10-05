@@ -13,6 +13,8 @@ class DayViewController: UIViewController {
     let SIDE_PADDING    : CGFloat = 43;
     let TOP_PADDING     : CGFloat = 85;
     
+    @IBOutlet weak var notes: UITextView!
+    
     var imageView:UIImageView = UIImageView()
     var backgroundColDict:Dictionary<String,UIColor> = Dictionary()
     var moodColors : [UIColor] = [UIColor(red:0.52, green:0.52, blue:1.0, alpha:1.0),
