@@ -11,6 +11,7 @@
 		00880BB419E09DD0005ABB87 /* MainBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00880BB319E09DD0005ABB87 /* MainBoard.storyboard */; };
 		00880BB819E0AB31005ABB87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00880BB719E0AB31005ABB87 /* ViewController.swift */; };
 		78B560DA19E0D281007EAD0B /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B560D919E0D281007EAD0B /* DayViewController.swift */; };
+		8E14FF2719E0763700CDB19D /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14FF2619E0763700CDB19D /* DatabaseController.swift */; };
 		8E1C856A19E056870029C55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C856919E056870029C55A /* AppDelegate.swift */; };
 		8E1C857119E056870029C55A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1C857019E056870029C55A /* Images.xcassets */; };
 		8E1C857419E056870029C55A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1C857219E056870029C55A /* LaunchScreen.xib */; };
@@ -37,6 +38,11 @@
 		62FBDC0EC729187556338D0D /* Pods-Colorfeel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorfeel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Colorfeel/Pods-Colorfeel.release.xcconfig"; sourceTree = "<group>"; };
 		78AE12AC04E25464BDA30564 /* Pods-Colorfeel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorfeel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Colorfeel/Pods-Colorfeel.debug.xcconfig"; sourceTree = "<group>"; };
 		78B560D919E0D281007EAD0B /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		2491BA6308FE51C5897B6E31 /* libPods-Colorfeel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Colorfeel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62FBDC0EC729187556338D0D /* Pods-Colorfeel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorfeel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Colorfeel/Pods-Colorfeel.release.xcconfig"; sourceTree = "<group>"; };
+		78AE12AC04E25464BDA30564 /* Pods-Colorfeel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colorfeel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Colorfeel/Pods-Colorfeel.debug.xcconfig"; sourceTree = "<group>"; };
+		8E14FF2519E0746500CDB19D /* Colorfeel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Colorfeel-Bridging-Header.h"; sourceTree = "<group>"; };
+		8E14FF2619E0763700CDB19D /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		8E1C856419E056870029C55A /* Colorfeel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorfeel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1C856819E056870029C55A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E1C856919E056870029C55A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 				00880BB319E09DD0005ABB87 /* MainBoard.storyboard */,
 				00880BB119E08C5A005ABB87 /* CFCell.swift */,
 				8E1C856919E056870029C55A /* AppDelegate.swift */,
+				8E14FF2619E0763700CDB19D /* DatabaseController.swift */,
 				8E1C857019E056870029C55A /* Images.xcassets */,
 				8E1C857219E056870029C55A /* LaunchScreen.xib */,
 				8E1C856719E056870029C55A /* Supporting Files */,
@@ -124,6 +131,7 @@
 		8E1C856719E056870029C55A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8E14FF2519E0746500CDB19D /* Colorfeel-Bridging-Header.h */,
 				8E1C856819E056870029C55A /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -283,8 +291,9 @@
 			files = (
 				00880BB819E0AB31005ABB87 /* ViewController.swift in Sources */,
 				00880BB219E08C5A005ABB87 /* CFCell.swift in Sources */,
-				8E1C856A19E056870029C55A /* AppDelegate.swift in Sources */,
 				78B560DA19E0D281007EAD0B /* DayViewController.swift in Sources */,
+				8E1C856A19E056870029C55A /* AppDelegate.swift in Sources */,
+				8E14FF2719E0763700CDB19D /* DatabaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +415,7 @@
 				INFOPLIST_FILE = Colorfeel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Colorfeel/Colorfeel-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -419,6 +429,7 @@
 				INFOPLIST_FILE = Colorfeel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Colorfeel/Colorfeel-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
