@@ -89,15 +89,20 @@ UICollectionViewDataSource {
     //Called when one of the elements of the Collection View is pressed.
     func collectionView(collectionView: UICollectionView,
         didSelectItemAtIndexPath indexPath: NSIndexPath) {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
+            let cell = collectionView.cellForItemAtIndexPath(indexPath)
+            var cellcolor = cell?.backgroundColor
+            collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
             
             // if clicked, send color value over to edit view
-            performSegueWithIdentifier("color_select", sender: indexPath)
+            performSegueWithIdentifier("color_select", sender: cellcolor)
     }
     
-    override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
-        println("Somebody once told me the world was gonna roll me...")
-        super.performSegueWithIdentifier(identifier!, sender:sender);
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(sender)
+        if segue.identifier == "color_select" {
+            var svc: DayViewController = segue.destinationViewController as DayViewController
+            svc.inputColor = sender! as UIColor
+        }
     }
 }
 
