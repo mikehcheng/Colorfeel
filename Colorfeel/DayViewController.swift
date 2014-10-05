@@ -25,8 +25,6 @@ class DayViewController: UIViewController {
         
         backgroundColDict = ["Purple":UIColor(red:0.52, green:0.52, blue:1.0, alpha:1.0), "Orange":UIColor(red:1.0, green:0.8, blue:0.0, alpha:1.0)]
         
-        
-        
         var buttonTitles = ["Purple","Orange"]
         
         var view:UIView = UIView(frame: CGRectMake(0, 0, width, height))

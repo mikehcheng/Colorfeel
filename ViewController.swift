@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegateFlowLayout,
+                                        UICollectionViewDataSource {
     
     var collectionView: UICollectionView?
     
@@ -31,7 +32,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         let red = Double((hex & 0xFF0000) >> 16) / 255.0
         let green = Double((hex & 0xFF00) >> 8) / 255.0
         let blue = Double((hex & 0xFF)) / 255.0
-        var color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+        var color: UIColor = UIColor(red: CGFloat(red), green: CGFloat(green),
+                                     blue: CGFloat(blue), alpha:CGFloat(alpha))
         return color
     }
     
@@ -44,14 +46,16 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         //Create a new collection view flow layout.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         //Padding from the sides.
-        layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING, bottom: BOTTOM_PADDING,
-                                           right: SIDE_PADDING)
+        layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING,
+                              bottom: BOTTOM_PADDING, right: SIDE_PADDING)
         //Item size for each cell.
         layout.itemSize = CGSize(width: ITEM_SIZE, height: ITEM_SIZE)
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout : layout)
+        collectionView = UICollectionView(frame: self.view.frame,
+                                          collectionViewLayout : layout)
         collectionView!.dataSource = self
         collectionView!.delegate = self
-        collectionView!.registerClass(CFCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView!.registerClass(CFCell.self,
+                                      forCellWithReuseIdentifier: "Cell")
         collectionView!.backgroundColor = BG_COLOR
         self.view.addSubview(collectionView!)
     }
@@ -61,21 +65,24 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         // Dispose of any resources that can be recreated.
     }
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return 32
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
-        
+    func collectionView(collectionView: UICollectionView,
+                        cellForItemAtIndexPath indexPath: NSIndexPath) ->
+                        UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell",
+                   forIndexPath: indexPath) as CFCell
         cell.backgroundColor = colorize(hexCodes[indexPath.row], alpha: 1.0);
-        
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
-
+    func collectionView(collectionView: UICollectionView,
+                        didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell",
+                   forIndexPath: indexPath) as CFCell
         println(indexPath.row);
         // if clicked, send color value over to edit view
     }
