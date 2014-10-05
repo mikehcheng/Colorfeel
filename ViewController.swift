@@ -80,5 +80,10 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         // if clicked, send color value over to edit view
     }
     
+    //
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        println("Get wrekt Mike")
+    }
+    
 }
 
