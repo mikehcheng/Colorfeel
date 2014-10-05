@@ -8,12 +8,13 @@
 
 import UIKit
 
-class DayViewController: UIViewController {
+class DayViewController: UIViewController, UITextViewDelegate {
     
     let SIDE_PADDING    : CGFloat = 43;
     let TOP_PADDING     : CGFloat = 85;
     
     @IBOutlet weak var notes: UITextView!
+    
     var inputColor: UIColor!
     
     var imageView:UIImageView = UIImageView()
@@ -48,23 +49,51 @@ class DayViewController: UIViewController {
         label.text = "_______________________________"
         self.view.addSubview(label)
         
+        //Set up the swipe handler.
         var swipeRec = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
         swipeRec.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRec)
+        
+        notes.delegate = self
+        notes.returnKeyType = UIReturnKeyType.Done
         
         let width: CGFloat = 200;
         let height: CGFloat = 200;
         
         var view:UIView = UIView(frame: CGRectMake(SIDE_PADDING, TOP_PADDING,
                                                    width, height))
-        
         self.view.addSubview(view);
         
         self.view.backgroundColor = BG_COLOR
         
+        //Color Square
         imageView = UIImageView(frame: view.frame)
         imageView.backgroundColor = inputColor
         view.addSubview(imageView);
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        println("Began!")
+        UIView.animateWithDuration(0.33, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+            animations: { () -> Void in
+                self.view.transform = CGAffineTransformMakeTranslation(0, -216)
+            },
+            completion: nil
+        )
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            UIView.animateWithDuration(0.33, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+                animations: { () -> Void in
+                    self.view.transform = CGAffineTransformMakeTranslation(0, 0)
+                },
+                completion: nil
+            )
+
+        }
+        return true
     }
     
     override func didReceiveMemoryWarning() {
