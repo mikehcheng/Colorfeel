@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V62-Fm-PN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="160"/>
+            <point key="canvasLocation" x="2061" y="154"/>
         </scene>
         <!--Day View-->
         <scene sceneID="Irk-2l-mNw">
@@ -93,6 +93,7 @@
                     </view>
                     <connections>
                         <outlet property="notes" destination="NL0-C1-Ptr" id="RZO-rY-DvZ"/>
+                        <segue destination="Eta-5C-Jmc" kind="custom" identifier="back_color_select" customClass="TranslateRightSegue" customModule="Colorfeel" customModuleProvider="target" id="S8s-Kc-BtM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMy-l7-BEG" userLabel="First Responder" sceneMemberID="firstResponder"/>

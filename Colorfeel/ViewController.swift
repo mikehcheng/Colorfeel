@@ -13,8 +13,6 @@ UICollectionViewDataSource {
     
     var collectionView: UICollectionView?
     
-    let swipeRec = UISwipeGestureRecognizer()
-    
     let TOP_PADDING     : CGFloat = 150;
     let BOTTOM_PADDING  : CGFloat = 80;
     let SIDE_PADDING    : CGFloat = 64;
@@ -96,8 +94,8 @@ UICollectionViewDataSource {
     }
     
     override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
-        println("Somebody once told me the world was gonna roll me...")
         super.performSegueWithIdentifier(identifier!, sender:sender);
     }
+
 }
 
