@@ -8,12 +8,13 @@
 
 import UIKit
 
-class DayViewController: UIViewController {
+class DayViewController: UIViewController, UITextViewDelegate {
     
     let SIDE_PADDING    : CGFloat = 43;
     let TOP_PADDING     : CGFloat = 85;
     
     @IBOutlet weak var notes: UITextView!
+    
     var inputColor: UIColor!
     
     var imageView:UIImageView = UIImageView()
@@ -33,16 +34,19 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Set up the swipe handler.
         var swipeRec = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
         swipeRec.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRec)
+        
+        notes.delegate = self
+        notes.returnKeyType = UIReturnKeyType.Done
         
         let width: CGFloat = 200;
         let height: CGFloat = 200;
         
         var view:UIView = UIView(frame: CGRectMake(SIDE_PADDING, TOP_PADDING,
                                                    width, height))
-        
         self.view.addSubview(view);
         
         self.view.backgroundColor = BG_COLOR
@@ -50,6 +54,14 @@ class DayViewController: UIViewController {
         imageView = UIImageView(frame: view.frame)
         imageView.backgroundColor = inputColor
         view.addSubview(imageView);
+    }
+    
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        return true
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,7 +74,6 @@ class DayViewController: UIViewController {
     }
     
     func handleSwipeGesture(gesture : UIGestureRecognizer) {
-        //println("HI")
         performSegueWithIdentifier("back_color_select", sender: gesture.view)
     }
 }
