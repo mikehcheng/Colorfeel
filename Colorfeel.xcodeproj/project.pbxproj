@@ -17,6 +17,7 @@
 		8E1C857419E056870029C55A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1C857219E056870029C55A /* LaunchScreen.xib */; };
 		8E1C858019E056870029C55A /* ColorfeelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C857F19E056870029C55A /* ColorfeelTests.swift */; };
 		8E1C858A19E05A240029C55A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1C858919E05A240029C55A /* libsqlite3.dylib */; };
+		8E8D316519E10DAF001667EF /* ExtrudeZSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D316419E10DAF001667EF /* ExtrudeZSegue.swift */; };
 		F6562492DFB154D915B7CC4F /* libPods-Colorfeel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2491BA6308FE51C5897B6E31 /* libPods-Colorfeel.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		8E1C857E19E056870029C55A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E1C857F19E056870029C55A /* ColorfeelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfeelTests.swift; sourceTree = "<group>"; };
 		8E1C858919E05A240029C55A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8E8D316419E10DAF001667EF /* ExtrudeZSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrudeZSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				00880BB719E0AB31005ABB87 /* ViewController.swift */,
 				78B560D919E0D281007EAD0B /* DayViewController.swift */,
+				8E8D316419E10DAF001667EF /* ExtrudeZSegue.swift */,
 				00880BB319E09DD0005ABB87 /* MainBoard.storyboard */,
 				00880BB119E08C5A005ABB87 /* CFCell.swift */,
 				8E1C856919E056870029C55A /* AppDelegate.swift */,
@@ -290,6 +293,7 @@
 				00880BB219E08C5A005ABB87 /* CFCell.swift in Sources */,
 				78B560DA19E0D281007EAD0B /* DayViewController.swift in Sources */,
 				8E1C856A19E056870029C55A /* AppDelegate.swift in Sources */,
+				8E8D316519E10DAF001667EF /* ExtrudeZSegue.swift in Sources */,
 				8E14FF2719E0763700CDB19D /* DatabaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pC1-5f-kre">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Eta-5C-Jmc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -51,6 +51,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="w4j-ou-XmA"/>
+                    <connections>
+                        <segue destination="pC1-5f-kre" kind="show" identifier="color_select" id="t1e-MS-j2z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V62-Fm-PN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMy-l7-BEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="160"/>
+            <point key="canvasLocation" x="2068" y="160"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jL9-Ku-50D">
