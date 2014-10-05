@@ -90,18 +90,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="___________________________________" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saA-TV-Cw0">
-                                <rect key="frame" x="150" y="393" width="300" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="5" id="SWi-FQ-f8p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.12971297549999999" green="0.12971297549999999" blue="0.12971297549999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="50" y="393" width="300" height="21"/>
-                                </variation>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Enter note here..." translatesAutoresizingMaskIntoConstraints="NO" id="NL0-C1-Ptr">
                                 <rect key="frame" x="165" y="422" width="270" height="126"/>
                                 <color key="backgroundColor" red="0.84130859375" green="0.84130859375" blue="0.84130859375" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -112,6 +100,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="NL0-C1-Ptr" secondAttribute="centerX" id="Fjj-hB-ahz"/>
+                            <constraint firstItem="NL0-C1-Ptr" firstAttribute="top" secondItem="4Mk-GM-fhy" secondAttribute="bottom" constant="380" id="a1h-BE-VCk"/>
                         </constraints>
                     </view>
                     <connections>
