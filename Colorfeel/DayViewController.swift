@@ -10,42 +10,50 @@ import UIKit
 
 class DayViewController: UIViewController {
     
+    let SIDE_PADDING    : CGFloat = 43;
+    let TOP_PADDING     : CGFloat = 85;
+    
     var imageView:UIImageView = UIImageView()
     var backgroundColDict:Dictionary<String,UIColor> = Dictionary()
     var moodColors : [UIColor] = [UIColor(red:0.52, green:0.52, blue:1.0, alpha:1.0),
         UIColor(red:1.0, green:0.8, blue:0.0, alpha:1.0),
         UIColor(red:0, green:1, blue:0.0, alpha:1.0)]
     
+    func colorize (hex: Int, alpha: Double) -> UIColor {
+        let red = Double((hex & 0xFF0000) >> 16) / 255.0
+        let green = Double((hex & 0xFF00) >> 8) / 255.0
+        let blue = Double((hex & 0xFF)) / 255.0
+        var color: UIColor = UIColor(red: CGFloat(red), green: CGFloat(green),
+            blue: CGFloat(blue), alpha:CGFloat(alpha))
+        return color
+    }
+    
     override func viewDidLoad() {
+        let BG_COLOR : UIColor = colorize(0xEFEFEF, alpha: 1.0)
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let width: CGFloat = 200;
         let height: CGFloat = 200;
         
-        backgroundColDict = ["Purple":UIColor(red:0.52, green:0.52, blue:1.0, alpha:1.0), "Orange":UIColor(red:1.0, green:0.8, blue:0.0, alpha:1.0)]
-        
-        var buttonTitles = ["Purple","Orange"]
-        
-        var view:UIView = UIView(frame: CGRectMake(0, 0, width, height))
+        var view:UIView = UIView(frame: CGRectMake(SIDE_PADDING, TOP_PADDING,
+                                                   width, height))
         
         self.view.addSubview(view);
         
-        var backgroundCol:UIColor = backgroundColDict["Purple"]!
+        self.view.backgroundColor = BG_COLOR
         
         imageView = UIImageView(frame: view.frame)
-        imageView.backgroundColor = backgroundColDict["Purple"]
         
         view.addSubview(imageView);
         
         changeBackgroundColor(self.makePrettyColors(self.moodColors));
-        
     }
     
     //Changes the background colors
     //@list: The list of colors to go through
     func changeBackgroundColor(list:[UIColor]){
-        
         self.toNextColor(list, intIndex: 0);
         
     }
@@ -63,22 +71,21 @@ class DayViewController: UIViewController {
         
     }
     
-    //Takes an array and makes the transitions pretty desu
-    //
+    //Takes an array and makes the transitions pretty
     //Returns the kpsurgeried color array
     func makePrettyColors(list:[UIColor]) ->Array<UIColor>{
         //var index = 0;
         var prettyColorList: Array<UIColor> = [];
         for index in 0...(list.count-2) {
-            prettyColorList = prettyColorList + changePrettyColors(list[index], addColor: list[index+1])
+            prettyColorList = prettyColorList + changePrettyColors(list[index],
+                              addColor: list[index+1])
         }
         
         return prettyColorList;
     }
     
     //Takes a two colors
-    //Makes the add pretty kawaii desu
-    //
+    //Makes the add pretty
     //@currColor: Current Color
     //@addColor: The color to be added
     //
@@ -110,7 +117,5 @@ class DayViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
 }
+

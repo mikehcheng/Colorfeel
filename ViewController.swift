@@ -13,10 +13,10 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     var collectionView: UICollectionView?
     
-    let TOP_PADDING : CGFloat = 150;
-    let BOTTOM_PADDING : CGFloat = 80;
-    let SIDE_PADDING : CGFloat = 64;
-    let ITEM_SIZE : CGFloat = 45;
+    let TOP_PADDING     : CGFloat = 150;
+    let BOTTOM_PADDING  : CGFloat = 80;
+    let SIDE_PADDING    : CGFloat = 64;
+    let ITEM_SIZE       : CGFloat = 45;
     
     let hexCodes : [Int] = [0xFF9999, 0xCC6666, 0x993333, 0x660000,  // red
         0xFDCC9A, 0xF79868, 0xCC6633, 0x993300,  // orange
