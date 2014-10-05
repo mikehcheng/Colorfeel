@@ -1,34 +1,28 @@
 //
-//  ViewController.swift
-//  Buttons
+//  WeekViewController.swift
+//  Colorfeel
 //
-//  Created by J.T. Cho on 10/4/14.
-//  Copyright (c) 2014 taymakes. All rights reserved.
+//  Created by Nancy Wong on 10/5/14.
+//  Copyright (c) 2014 Michael Cheng. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegateFlowLayout,
-                      UICollectionViewDataSource {
+class WeekViewController: UIViewController, UICollectionViewDelegateFlowLayout,
+                          UICollectionViewDataSource {
     
     var collectionView: UICollectionView?
     
     let TOP_PADDING     : CGFloat = 150;
     let BOTTOM_PADDING  : CGFloat = 80;
-    let SIDE_PADDING    : CGFloat = 64;
-    let ITEM_SIZE       : CGFloat = 45;
+    let SIDE_PADDING    : CGFloat = 150;
+    let ITEM_SIZE       : CGFloat = 35;
     
-    //Hex Codes for Color Squares
-    let hexCodes : [Int] = [0xFF9999, 0xCC6666, 0x993333, 0x660000,  // red
-        0xFDCC9A, 0xF79868, 0xCC6633, 0x993300,  // orange
-        0xFFE5B6, 0xFFCC66, 0xCC9933, 0x996600,  // yellow
-        0xCFE295, 0x99CC66, 0x669940, 0x356732,  // green
-        0xC8E8E8, 0x99CCCC, 0x669999, 0x336667,  // teal
-        0xD3E3F1, 0x9FC9EB, 0x6699CC, 0x33669A,  // blue
-        0xEBCEE3, 0xCB9AC6, 0x996699, 0x663366,  // purple
-        0xFBDEEB, 0xF499C1, 0xCC6699, 0x9A3466]  // pink
+    // primary colors for Sun - Sat
+    // if no color data found, light grey 0xF0EFEF
+    let hexCodes : [Int] = [0xFF9999, 0xCC6666, 0x993333, 0x660000,
+                            0xFDCC9A, 0xF79868, 0xCC6633]
     
-    //Converts a given hex value and alpha into a representable color .
     func colorize (hex: Int, alpha: Double) -> UIColor {
         let red = Double((hex & 0xFF0000) >> 16) / 255.0
         let green = Double((hex & 0xFF00) >> 8) / 255.0
@@ -38,31 +32,38 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         return color
     }
     
-    //Runs when the represented view loads.
     override func viewDidLoad() {
+        let BG_COLOR : UIColor = colorize(0xEFEFEF, alpha: 1.0)
         
         super.viewDidLoad()
         
-        let BG_COLOR : UIColor = colorize(0xEFEFEF, alpha: 1.0)
+        var date = UILabel(frame: CGRectMake(0, 0, 400, 21))
+        date.center = CGPointMake(188, 200)
+        date.textAlignment = NSTextAlignment.Center
+        date.textColor = colorize(0x727373, alpha: 1.0);
+        date.text = ""
+        //  NSString *displayString = [NSDate stringForDisplayFromDate:date];
+        self.view.addSubview(date)
         
+        //Additional stuff.
         //Create a new collection view flow layout.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        
         //Padding from the sides.
         layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING,
             bottom: BOTTOM_PADDING, right: SIDE_PADDING)
         //Item size for each cell.
         layout.itemSize = CGSize(width: ITEM_SIZE, height: ITEM_SIZE)
+        layout.minimumLineSpacing = 30
         collectionView = UICollectionView(frame: self.view.frame,
             collectionViewLayout : layout)
         collectionView!.dataSource = self
         collectionView!.delegate = self
-        collectionView!.registerClass(CFCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView!.registerClass(CFCell.self,
+            forCellWithReuseIdentifier: "Cell")
         collectionView!.backgroundColor = BG_COLOR
         self.view.addSubview(collectionView!)
     }
     
-    //
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,7 +72,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     //Return the number of elements in the Collection View.
     func collectionView(collectionView: UICollectionView,
         numberOfItemsInSection section: Int) -> Int {
-            return 32
+            return 7
     }
     
     //Called when initializing each Collection View element.
@@ -92,15 +93,14 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as CFCell
             
             // if clicked, send color value over to edit view
-            performSegueWithIdentifier("color_select", sender: cellcolor)
+//            performSegueWithIdentifier("color_select", sender: cellcolor)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print(sender)
-        if segue.identifier == "color_select" {
-            var svc: DayViewController = segue.destinationViewController as DayViewController
-            svc.inputColor = sender! as UIColor
-        }
+  //      print(sender)
+//        if segue.identifier == "color_select" {
+    //        var svc: DayViewController = segue.destinationViewController as DayViewController
+      //      svc.inputColor = sender! as UIColor
+        //}
     }
 }
-

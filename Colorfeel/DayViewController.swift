@@ -33,6 +33,21 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        var date = UILabel(frame: CGRectMake(0, 0, 400, 21))
+        date.center = CGPointMake(188, 200)
+        date.textAlignment = NSTextAlignment.Center
+        date.textColor = colorize(0x727373, alpha: 1.0);
+        date.text = ""
+        // NSString *displayString = [NSDate stringForDisplayFromDate:date];
+        self.view.addSubview(date)
+        
+        var label = UILabel(frame: CGRectMake(0, 0, 400, 21))
+        label.center = CGPointMake(188, 394)
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = colorize(0x727373, alpha: 1.0);
+        label.text = "_______________________________"
+        self.view.addSubview(label)
+        
         var swipeRec = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture:")
         swipeRec.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRec)
@@ -62,7 +77,6 @@ class DayViewController: UIViewController {
     }
     
     func handleSwipeGesture(gesture : UIGestureRecognizer) {
-        //println("HI")
         performSegueWithIdentifier("back_color_select", sender: gesture.view)
     }
 }
